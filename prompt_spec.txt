@@ -1,0 +1,72 @@
+<USER_REQUEST>
+ROLE
+You are building the machine learning part of SPARC (State-of-charge Prediction and
+Analysis for Race Clipping). Read README.md and docs/architecture.md first and follow
+them. Do model work only. Do not build the backend or frontend. No emojis anywhere in
+code, comments, logs or docs.
+
+SETUP
+1. Append these lines to .gitignore if missing: ml/data/, data/, .env, *.parquet, logs/
+2. Create folders if missing: data/processed, ml/reports/clip_samples, logs, config.
+3. Raw OpenF1 CSVs are in ml/data/raw_csv/<race_folder>/ (car_data, location, laps,
+   intervals, position, stints, pit, weather, drivers, race_control). Use only folders
+   that contain a DONE file. Total raw size is about 900 MB.
+
+TOKEN RULES
+Write each stage as a script file, then run it in the terminal with output redirected
+to logs/<stage>.log and show only the last 20 lines. Never print full dataframes or
+CSV contents. Print only shapes, column names, head(3), and metric summaries. Do not
+re-run a stage unless its script changed. Print runtime per stage.
+
+PERFORMANCE RULES (laptop: Intel i5, no GPU, 8 to 16 GB RAM)
+Process one race at a time and free memory between races. Use float32 everywhere and
+read CSVs with explicit dtypes and only the needed columns. For training, use every
+4th sample (1 Hz) and keep only samples at 90 km/h or above with throttle above 50
+percent, plus every positive clip sample. Random Forest: max 100 trees, max_depth 12,
+n_jobs=-1, trained on a subsample of at most 1.5 million rows. LightGBM uses the full
+reduced set. Run stages sequentially, and if a stage crashes, fix and re-run only that
+stage.
+
+STAGE 1: PROCESSING (ml/process_races.py)
+For each race and driver: join car_data and location on timestamp (nearest match,
+tolerance 0.5 s), resample to a common 4 Hz grid per race, add lap number (laps.csv),
+gap_ahead and gap_behind (intervals.csv), tyre compound and tyre age (stints.csv),
+track and air temperature and rain (weather.csv, nearest time), and team (drivers.csv).
+
+<truncated 1941 bytes>
+pi, harvest_last_brake_zone, deploy_last_straight,
+distance_to_straight_end, straight_length, lap_fraction, throttle, throttle_mean_50m,
+speed, speed_slope_50m, gear, rpm_ratio, lap_number, fuel_load_est_kg, tyre_age,
+compound, gap_ahead_s, gap_behind_s, p_rival, track_temp, rain_flag, team (encoded),
+circuit (encoded). No feature may use future information. feature_engineer.py must be
+reusable unchanged for live inference later.
+Models: threshold baseline on soc_est, logistic regression, LightGBM, Random Forest.
+Split: GroupKFold by race, never random. Handle class imbalance.
+GATE 4: if fewer than 4 races are available, stop and report instead of training.
+Metrics per fold and averaged: PR-AUC, precision and recall at the chosen threshold,
+lead time (metres before the clip that the alert fires), false alarms per lap.
+Ablations for the best model: without p_rival, without fuel_load_est_kg, without
+tyre_age.
+
+OUTPUTS
+ml/sparc_model.pkl, config/teams.yaml, ml/reports/evaluation.md (metrics, baselines,
+ablations, per-team results, runtime per stage), ml/reports/clip_samples/, and a short
+list of known limitations found during the work.
+
+FINAL REPORT
+Print only: races used, total clips, gate results, best model, the metric table versus
+baselines, and total runtime. If any gate failed, say which one and why, and stop.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-01T01:00:34+05:30.
+
+The user's current state is as follows:
+Active Document: c:\MERN STACK\9 - COURSE PROJECTS\SPARC\ml\download_openf1_bg.py (LANGUAGE_PYTHON)
+Cursor is on line: 1
+Other open documents:
+- c:\MERN STACK\9 - COURSE PROJECTS\SPARC\docs\SETUP.md (LANGUAGE_MARKDOWN)
+- c:\MERN STACK\9 - COURSE PROJECTS\SPARC\docs\ARCHITECTURE.md (LANGUAGE_MARKDOWN)
+- c:\MERN STACK\9 - COURSE PROJECTS\SPARC\docs\ROADMAP.md (LANGUAGE_MARKDOWN)
+- c:\MERN STACK\9 - COURSE PROJECTS\SPARC\README.md (LANGUAGE_MARKDOWN)
+- c:\MERN STACK\9 - COURSE PROJECTS\SPARC\ml\download_openf1_bg.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>
