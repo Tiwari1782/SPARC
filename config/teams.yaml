@@ -1,0 +1,203 @@
+# Per-team calibrated energy model constants
+# STATUS: PROVISIONAL - fitted against observed 2026 clipping events.
+# Not official FIA or team technical numbers.
+
+teams:
+  Alpine:
+    capacity_kwh: 1.0129
+    deploy_sens: 2.1139
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Aston Martin:
+    capacity_kwh: 0.5
+    deploy_sens: 0.7388
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Audi:
+    capacity_kwh: 0.7887
+    deploy_sens: 2.0897
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Cadillac:
+    capacity_kwh: 0.5
+    deploy_sens: 2.2
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Ferrari:
+    capacity_kwh: 0.5
+    deploy_sens: 2.2
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Haas F1 Team:
+    capacity_kwh: 0.5
+    deploy_sens: 2.2
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  McLaren:
+    capacity_kwh: 0.6463
+    deploy_sens: 2.0519
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Mercedes:
+    capacity_kwh: 0.7007
+    deploy_sens: 1.5457
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Racing Bulls:
+    capacity_kwh: 1.2456
+    deploy_sens: 2.1438
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Red Bull Racing:
+    capacity_kwh: 0.5
+    deploy_sens: 2.2
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
+  Williams:
+    capacity_kwh: 0.8675
+    deploy_sens: 1.8455
+    fitted_on:
+    - 2026_Baku_Race
+    - 2026_Catalunya_Race
+    - 2026_Hungaroring_Race
+    - 2026_Madring_Race
+    - 2026_Melbourne_Race
+    - 2026_Miami_Race
+    - 2026_Monte_Carlo_Race
+    - 2026_Montreal_Race
+    - 2026_Monza_Race
+    - 2026_Shanghai_Race
+    regen_sens: 2.2
+    status: PROVISIONAL
+    taper_v_start: 280.0
+    taper_v_zero: 370.0
