@@ -1,4 +1,6 @@
 ml/data/
+ml/__pycache__/
+backend/__pycache__/
 data/
 .env
 *.parquet
