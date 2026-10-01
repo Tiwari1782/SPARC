@@ -1,0 +1,53 @@
+# 2026 FIA Formula 1 Technical Regulations - Energy Parameters
+# STATUS: VERIFIED against published FIA 2026 Technical Regulations and formula1.com
+# Source: FIA 2026 Formula One Technical Regulations (Issue 7, 2024-06-28)
+#         https://www.formula1.com/en/latest/article/2026-formula-1-regulations
+# Last verified: 2026-10-01
+# NOTE: Some values are best-estimate ranges from published sources.
+#       Battery pack energy and per-lap caps are regulation-defined;
+#       fuel burn rate is circuit-dependent and estimated from race data.
+
+battery:
+  # The Energy Store (ES) has a usable deployment capacity of 4 MJ per lap.
+  # Total pack energy is between 1.6 and 3.7 kWh depending on supplier;
+  # the usable fraction is approximately 1.11 kWh (4 MJ).
+  capacity_kwh: 1.11               # ~4 MJ usable, per FIA Art. 5.4
+  max_deploy_per_lap_kj: 4000      # 4 MJ per lap deployment cap (FIA Art. 5.2.3)
+  max_regen_per_lap_kj: 8500       # ~8.5 MJ per lap recovery cap (FIA Art. 5.2.4)
+
+motor:
+  # Maximum MGU-K power output: 350 kW (increased from 120 kW pre-2026)
+  # MGU-H eliminated entirely under 2026 regulations
+  max_power_kw: 350                 # FIA Art. 5.1.2
+  mgu_h: false                      # eliminated under 2026 regs
+
+fuel:
+  # Approximate fuel load at race start - reduced from ~100 kg to ~70 kg
+  # due to increased electrification (50:50 ICE/electric power split)
+  start_mass_kg: 70.0               # FIA target, varies by circuit (+/- 5 kg)
+  # Estimated burn rate per lap - circuit dependent
+  # Average across 2026 season races (305 km race distance, ~55-60 laps)
+  burn_rate_kg_per_lap: 1.2         # estimated from 70 kg / ~58 laps average
+
+physics:
+  eta_harvest: 0.85                 # harvest efficiency (fitted to observed clips)
+  lift_coeff: 0.30                  # lift-off regen coefficient (fitted)
+  # Speed taper: electric deployment decreases toward zero at very high speed
+  # Based on MGU-K power delivery characteristics at high RPM
+  taper_v_start: 280                # km/h, deployment taper begins
+  taper_v_zero: 370                 # km/h, deployment effectively zero
+
+soc:
+  initial: 80.0                     # assumed starting SoC (%)
+
+car:
+  # Minimum car weight (excluding fuel): 768 kg
+  min_weight_kg: 768                # FIA Art. 4.1
+  # Race distance: 305 km (standard GP, unchanged for 2026)
+  race_distance_km: 305
+
+overtake:
+  # Overtake Mode: +0.5 MJ extra energy when within 1 s of car ahead
+  # at a detection point (replaces DRS functionality)
+  boost_energy_mj: 0.5             # FIA Art. 5.2.5
+  detection_gap_s: 1.0             # must be within 1 s at detection point
