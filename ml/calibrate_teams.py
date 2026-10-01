@@ -48,6 +48,7 @@ log = logging.getLogger(__name__)
 # Constants & Import energy engine
 # ---------------------------------------------------------------------------
 sys.path.insert(0, str(ROOT))
+# pyrefly: ignore [missing-import]
 from backend.energy_engine import (
     ETA_HARVEST, LIFT_COEFF, speed_taper,
 )
